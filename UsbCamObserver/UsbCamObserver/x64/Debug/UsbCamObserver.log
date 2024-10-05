@@ -1,0 +1,8 @@
+﻿  UsbCamObserver.cpp
+c:\users\corbis soft\source\repos\usbcamobserver\usbcamobserver\usbcamobserver.cpp(34): warning C4244: 'argument': conversion from 'double' to '_Tp', possible loss of data
+          with
+          [
+              _Tp=int
+          ]
+c:\users\corbis soft\source\repos\usbcamobserver\usbcamobserver\usbcamobserver.cpp(89): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  UsbCamObserver.vcxproj -> C:\Users\Corbis Soft\source\repos\UsbCamObserver\x64\Debug\UsbCamObserver.exe

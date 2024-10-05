@@ -1,0 +1,45 @@
+import cv2
+import numpy as np
+
+cam = cv2.VideoCapture(0)
+
+ # if not success, exit program
+if cam.isOpened() == False:  
+    print ("Cannot open the video camera")
+    cv2.cin.get() #wait for any key press
+    print -1
+  
+
+dWidth = cam.get(cv2.CAP_PROP_FRAME_WIDTH) #get the width of frames of the video
+dHeight = cam.get(cv2.CAP_PROP_FRAME_HEIGHT) #get the height of frames of the video
+
+print ("Resolution of the video : " + str(dWidth) + " x " + str(dHeight))
+
+window_name = "My Camera Feed";
+cv2.namedWindow(window_name); #create a window called "My Camera Feed"
+ 
+while True:
+ 
+    ret, frame = cam.read(); #read a new frame from video 
+    img = cv2.flip(frame,1)   # flip left-right  
+    img = cv2.flip(img,1)     # flip up-down
+
+  #Breaking the while loop if the frames cannot be captured
+    if (ret == False): 
+  
+        print ("Video camera is disconnected" + cv2.ACCESS_FASTendl)
+        cv2.cin.get() #Wait for any key press
+        break
+  
+
+  #show the frame in the created window
+    cv2.imshow(window_name, img)
+
+  #wait for for 10 ms until any key is pressed.  
+  #If the 'Esc' key is pressed, break the while loop.
+  #If the any other key is pressed, continue the loop 
+  #If any key is not pressed withing 10 ms, continue the loop 
+    if cv2.waitKey(10) == 27:
+        print ("Esc key is pressed by user. Stoppig the video")
+        break
+  
